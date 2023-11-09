@@ -5,7 +5,9 @@
 - [ODS](https://ods.ai/)
 - [CS231n: Convolutional Neural Networks for Visual Recognition](https://cs231n.github.io/)
 
-## Линейные модели
+## Классический ML
+
+### Линейные модели
 - [Введение в GLM: что это такое и как всё становится хуже | Вебинар | karpov.courses](https://www.youtube.com/watch?v=1-ADJNE1WNc)
 
 ## Рекомендашки
@@ -30,6 +32,10 @@
 
 ## Визуализация
 - [50 оттенков matplotlib — The Master Plots (с полным кодом на Python)](https://habr.com/ru/articles/468295/)
+- [Построение графиков в Python при помощи Matplotlib](https://python-scripts.com/matplotlib)
+- [Постер «Графики, которые убеждают всех»](https://www.notion.so/6c5ae8ceb8b5411e907c93c9b5e6a44e)
+- [The Python Graph Gallery](https://www.python-graph-gallery.com/)
+- [The Data Visualisation Catalogue](https://datavizcatalogue.com/)
 
 ## Интерпретация моделей
 - [Интерпретация моделей и диагностика сдвига данных: LIME, SHAP и Shapley Flow](https://habr.com/ru/companies/ods/articles/599573/)
@@ -39,3 +45,12 @@
 
 ## Дисбаланс классов
 - [Дисбаланс классов](https://alexanderdyakonov.wordpress.com/2021/05/27/imbalance/)
+
+## Pandas
+- [Подробное руководство по группировке и агрегированию с помощью pandas](https://dfedorov.spb.ru/pandas/Подробное%20руководство%20по%20группировке%20и%20агрегированию%20с%20помощью%20pandas.html)
+- [Понимание функции transform в Pandas](https://dfedorov.spb.ru/pandas/Понимание%20функции%20transform%20в%20Pandas.html)
+- [шпаргалка по pandas](https://github.com/pandas-dev/pandas/blob/main/doc/cheatsheet/Pandas_Cheat_Sheet.pdf)
+
+## SQL
+- [Документация PostgreSQL с полным списком оконных функций](https://postgrespro.ru/docs/postgresql/9.5/functions-window)
+- [SQL Style Guide](https://www.sqlstyle.guide/ru/)
