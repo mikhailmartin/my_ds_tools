@@ -1,5 +1,3 @@
-from typing import Optional, Tuple
-
 import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
@@ -8,10 +6,10 @@ import seaborn as sns
 
 
 def permutation_importance_plot(
-        pi,
-        feature_names,
-        figsize: Optional = None,
-) -> Tuple[matplotlib.figure.Figure, matplotlib.axes.Axes]:
+    pi,
+    feature_names,
+    figsize=None,
+) -> tuple[matplotlib.figure.Figure, matplotlib.axes.Axes]:
     """
     Отрисовывает Permutation Importance.
 

@@ -1,5 +1,3 @@
-from typing import Dict, Optional, Tuple
-
 import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
@@ -12,15 +10,15 @@ from sklearn.metrics import precision_score, recall_score, roc_auc_score
 
 
 def my_binary_classification_report(
-        classifier,
-        X: pd.DataFrame,
-        y_true: pd.Series,
-        threshold: Optional[float] = .5,
-        *,
-        classifier_name: Optional[str] = None,
-        figsize: Optional[Tuple[float, float]] = None,
-        cm_kw: Optional[Dict] = None,
-        rc_kw: Optional[Dict] = None,
+    classifier,
+    X: pd.DataFrame,
+    y_true: pd.Series,
+    threshold: float = .5,
+    *,
+    classifier_name: str | None = None,
+    figsize: tuple[float, float] | None = None,
+    cm_kw: dict | None = None,
+    rc_kw: dict | None = None,
 ) -> None:
     """
     Предоставляет отчёт по бинарной классификации.
@@ -78,12 +76,12 @@ def my_binary_classification_report(
 
 
 def my_multiclass_classification_report(
-        classifier,
-        X: pd.DataFrame,
-        y_true: pd.Series,
-        *,
-        figsize: Optional[Tuple[float, float]] = None,
-        cm_kw: Optional[Dict] = None,
+    classifier,
+    X: pd.DataFrame,
+    y_true: pd.Series,
+    *,
+    figsize: tuple[float, float] | None = None,
+    cm_kw: dict | None = None,
 ) -> None:
     """
     Предоставляет отчёт по мультиклассовой классификации.
@@ -114,10 +112,10 @@ def my_multiclass_classification_report(
 
 
 def precision_recall_plot(
-        y_true: pd.Series,
-        y_proba: np.ndarray,
-        ax: Optional[matplotlib.axes.Axes] = None,
-        nbin: int = 255,
+    y_true: pd.Series,
+    y_proba: np.ndarray,
+    ax: matplotlib.axes.Axes | None = None,
+    nbin: int = 255,
 ) -> None:
     """
     Рисует на заданном matplotlib.axes.Axes графики зависимости Precision и Recall от

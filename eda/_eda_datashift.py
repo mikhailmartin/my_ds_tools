@@ -1,5 +1,3 @@
-from typing import Optional, Tuple
-
 import calplot
 import matplotlib
 import matplotlib.pyplot as plt
@@ -10,12 +8,12 @@ from ._eda_distribution import _slice_by_value_range
 
 
 def ridge_plot(
-        data: pd.DataFrame,
-        *,
-        feature_colname: str,
-        date_colname: str,
-        value_range: Tuple[float | None, float | None] = (None, None),
-        freq: str,
+    data: pd.DataFrame,
+    *,
+    feature_colname: str,
+    date_colname: str,
+    value_range: tuple[float | None, float | None] = (None, None),
+    freq: str,
 ) -> None:
     """
     Визуализирует распределения численного непрерывного признака для целевых классов.
@@ -96,13 +94,13 @@ def ridge_plot(
 
 
 def area_plot(
-        data: pd.DataFrame,
-        *,
-        feature_colname: str,
-        date_colname: str,
-        freq: str,
-        ax: Optional[matplotlib.axes.Axes] = None,
-) -> Tuple[matplotlib.figure.Figure, matplotlib.axes.Axes]:
+    data: pd.DataFrame,
+    *,
+    feature_colname: str,
+    date_colname: str,
+    freq: str,
+    ax: matplotlib.axes.Axes | None = None,
+) -> tuple[matplotlib.figure.Figure, matplotlib.axes.Axes]:
     """
     Визуализирует распределения численного дискретного или категориального признака для
     целевых классов.
@@ -115,7 +113,7 @@ def area_plot(
         ax: ранее созданный ax.
 
     Returns:
-        ax: matplotlib.axes.Axes с отрисованным графиком.
+        matplotlib.axes.Axes с отрисованным графиком.
     """
     if not ax:
         ax = plt.subplot()
@@ -134,13 +132,13 @@ def area_plot(
 
 
 def na_datashift(
-        data: pd.DataFrame,
-        *,
-        feature_colname: str,
-        target_colname: str,
-        date_colname: str,
-        figsize: Optional[Tuple[float, float]] = (6.4, 4.8),
-) -> Tuple[matplotlib.figure.Figure, matplotlib.axes.Axes]:
+    data: pd.DataFrame,
+    *,
+    feature_colname: str,
+    target_colname: str,
+    date_colname: str,
+    figsize: tuple[float, float] = (6.4, 4.8),
+) -> tuple[matplotlib.figure.Figure, matplotlib.axes.Axes]:
     """
     Визуализирует доли пропусков в исследуемом признаке по дням в виде вафельной
     диаграммы.

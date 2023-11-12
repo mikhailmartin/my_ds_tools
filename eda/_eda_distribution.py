@@ -1,4 +1,4 @@
-from typing import Dict, Optional, Tuple
+from typing import Literal
 
 import matplotlib
 import matplotlib.pyplot as plt
@@ -8,11 +8,11 @@ import seaborn as sns
 
 
 def target_distribution_plot(
-        target_col: pd.Series,
-        *,
-        kind: str = 'bar',
-        figsize: Optional[Tuple[float, float]] = None,
-) -> Tuple[matplotlib.figure.Figure, matplotlib.axes.Axes]:
+    target_col: pd.Series,
+    *,
+    kind: Literal['bar', 'pie'] = 'bar',
+    figsize: tuple[float, float] | None = None,
+) -> tuple[matplotlib.figure.Figure, matplotlib.axes.Axes]:
     """
     Визуализирует распределение целевых классов.
 
@@ -48,13 +48,13 @@ def target_distribution_plot(
 
 
 def cat_feature_report(
-        data: pd.DataFrame,
-        *,
-        feature_colname: str,
-        target_colname: str,
-        figsize: Optional[Tuple[float, float]] = None,
-        x_rot: int | float = 0,
-) -> Tuple[matplotlib.figure.Figure, matplotlib.axes.Axes]:
+    data: pd.DataFrame,
+    *,
+    feature_colname: str,
+    target_colname: str,
+    figsize: tuple[float, float] | None = None,
+    x_rot: int | float = 0,
+) -> tuple[matplotlib.figure.Figure, matplotlib.axes.Axes]:
     """
     Визуализирует разницу в распределениях категориального признака для целевых классов.
 
@@ -119,15 +119,15 @@ def cat_feature_report(
 
 
 def num_feature_report(
-        data: pd.DataFrame,
-        *,
-        feature_colname: str,
-        target_colname: str,
-        value_range: Tuple[float | None, float | None] = (None, None),
-        figsize: Optional[Tuple[float, float]] = None,
-        x_rot: int | float = 0,
-        histplot_args: Optional[Dict] = None,
-) -> Tuple[matplotlib.figure.Figure, matplotlib.axes.Axes]:
+    data: pd.DataFrame,
+    *,
+    feature_colname: str,
+    target_colname: str,
+    value_range: tuple[float | None, float | None] = (None, None),
+    figsize: tuple[float, float] | None = None,
+    x_rot: int | float = 0,
+    histplot_args: dict | None = None,
+) -> tuple[matplotlib.figure.Figure, matplotlib.axes.Axes]:
     """
     Визуализирует разницу в распределениях численного непрерывного признака для целевых
     классов.
@@ -193,9 +193,9 @@ def num_feature_report(
 
 
 def _slice_by_value_range(
-        data: pd.DataFrame,
-        feature_colname: str,
-        value_range: Tuple[float | None, float | None] = (None, None),
+    data: pd.DataFrame,
+    feature_colname: str,
+    value_range: tuple[float | None, float | None] = (None, None),
 ) -> pd.DataFrame:
     """
     Возвращает срез pd.DataFrame по задаваемому признаку и диапазону значений.
@@ -207,7 +207,7 @@ def _slice_by_value_range(
         value_range: задаваемый диапазон рассматриваемых значений.
 
     Returns:
-        data: срезанный pd.DataFrame.
+        срезанный pd.DataFrame.
     """
     data = data.copy()
 
@@ -222,12 +222,12 @@ def _slice_by_value_range(
 
 
 def na_bar_plot(
-        data: pd.DataFrame,
-        *,
-        feature_colname: str,
-        target_colname: str,
-        ax: Optional[matplotlib.axes.Axes] = None,
-        x_rot: int | float = 0,
+    data: pd.DataFrame,
+    *,
+    feature_colname: str,
+    target_colname: str,
+    ax: matplotlib.axes.Axes | None = None,
+    x_rot: int | float = 0,
 ) -> matplotlib.axes.Axes:
     """
     Визуализирует разницу в доле пропусков для целевых классов.
@@ -240,7 +240,7 @@ def na_bar_plot(
         x_rot: угол наклона xticklabels.
 
     Returns:
-        ax: matplotlib.axes.Axes с отрисованным графиком.
+        matplotlib.axes.Axes с отрисованным графиком.
     """
     data = data[[feature_colname, target_colname]].copy()
 
@@ -267,12 +267,12 @@ def na_bar_plot(
 
 
 def _bar_plot(
-        data: pd.DataFrame,
-        *,
-        feature_colname: str,
-        target_colname: str,
-        ax: Optional[matplotlib.axes.Axes] = None,
-        x_rot: int | float = 0,
+    data: pd.DataFrame,
+    *,
+    feature_colname: str,
+    target_colname: str,
+    ax: matplotlib.axes.Axes | None = None,
+    x_rot: int | float = 0,
 ) -> matplotlib.axes.Axes:
     """
     Визуализирует распределение значений признака в виде столбчатой диаграммы для
@@ -286,7 +286,7 @@ def _bar_plot(
         x_rot: угол наклона xticklabels.
 
     Returns:
-        ax: matplotlib.axes.Axes с отрисованным графиком.
+        matplotlib.axes.Axes с отрисованным графиком.
     """
     data = data[[feature_colname, target_colname]].copy()
 

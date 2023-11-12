@@ -12,7 +12,7 @@ def get_forget_weights(date_col: pd.Series, coefficient: float) -> pd.Series:
         coefficient: коэффициент "забывания".
 
     Returns:
-        forget_weights: веса забывания примеров.
+        веса забывания примеров.
     """
     months = date_col.apply(lambda x: str(x)[:7])  # 2023-02
     months = months.replace(
